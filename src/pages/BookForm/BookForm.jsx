@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const BookForm = () => {
+const BookForm = ({onSubmit, bookToEdit}) => {
+    const [isEditing, setIsEditing] = useState(false)
+
     return (
-        <p>/books/add</p>
+        <>
+            {isEditing ? <p>books/edit/${bookToEdit}</p> : <p>books/add</p>}
+        </>    
     )
 }
 
