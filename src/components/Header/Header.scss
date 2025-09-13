@@ -1,0 +1,12 @@
+@import '../../styles.scss';
+
+header {
+    background-color: yellowgreen;
+    display: flex;
+    gap: 10px;
+    height: 5vh;
+
+    p {
+        margin: 0px;
+    }
+}
