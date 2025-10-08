@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 const emptyBookFormValues = {
-  id: '', //Iz nekog razloga, ovde moram da stavim neki random value da bih mogao da posaljem http post zahtev
+  id: '',
   title: '',
   pageCount: '',
   publishedDate: '',
@@ -59,7 +59,7 @@ const BookForm = ({ onBookSubmit, bookToEdit }) => {
       <div className="form-group">
         <label htmlFor="publishedDate">Date:</label>
         <input
-          type="date"
+          type="datetime"
           id="publishedDate"
           name="publishedDate"
           {...register('publishedDate')}
@@ -69,7 +69,7 @@ const BookForm = ({ onBookSubmit, bookToEdit }) => {
       <div className="form-group">
         <label htmlFor="isbn">ISBN:</label>
         <input
-          type="number"
+          type="text"
           id="isbn"
           name="isbn"
           {...register('isbn')}

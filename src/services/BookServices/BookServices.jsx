@@ -1,8 +1,12 @@
 import axiosService from '../axiosService'
 
-export const getAllBooks = async () => {
-  const response = await axiosService.get('/books');
-  return response.data;
+export const getAllBooks = async (orderBy) => {
+  const response = await axiosService.get('/books', {
+    params: {
+      orderBy: orderBy
+    }
+  });
+return response.data;
 };
 
 export const getBookById = async (id) => {
