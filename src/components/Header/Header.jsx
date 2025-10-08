@@ -9,6 +9,7 @@ const Header = () => {
       <Link to="/publishers">Publishers</Link>
       <Link to="/books">Books</Link>
       <Link to="/books/add">Create New Book</Link>
+      <Link to="/authors">Authors</Link>
     </header>
   );
 }

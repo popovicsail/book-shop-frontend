@@ -5,8 +5,8 @@ export const getAuthorsPaged = async (pageNumber, pageSize, orderBy) => {
     params: {
       pageNumber: pageNumber,
       pageSize: pageSize,
-      orderBy: orderBy,
-    },
+      orderBy: orderBy
+    }
   });
   return response.data;
 };
