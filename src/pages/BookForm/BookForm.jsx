@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 const emptyBookFormValues = {
-  id: '1', //Iz nekog razloga, ovde moram da stavim neki random value da bih mogao da posaljem http post zahtev
+  id: '', //Iz nekog razloga, ovde moram da stavim neki random value da bih mogao da posaljem http post zahtev
   title: '',
   pageCount: '',
   publishedDate: '',

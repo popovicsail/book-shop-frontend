@@ -12,18 +12,17 @@ const BookFormContainer = () => {
   const isEditing = Boolean(bookId)
 
   useEffect(() => {
+    const fetchBookData = async () => {
+      try {
+        const data = await getBookById(bookId);
+        setBookToEdit(data);
+      } catch (err) {
+        setError('ERROR: getBookById');
+      }
+    };
+
     if (isEditing) {
-      getBookById(bookId)
-        .then(data => {
-          const formattedData = {
-            ...data,
-            publishedDate: data.publishedDate ? data.publishedDate.split('T')[0] : ''
-          };
-          setBookToEdit(formattedData);
-        })
-        .catch(() => {
-          setError('ERROR: getBookById');
-        });
+      fetchBookData();
     } else {
       setBookToEdit(null);
     }
@@ -33,15 +32,10 @@ const BookFormContainer = () => {
 
   const handleBookSubmit = async (data) => {
     try {
-      const payload = {
-        ...data,
-        publishedDate: new Date(data.publishedDate).toISOString()
-      };
-
       if (isEditing) {
-        await updateBook(bookId, payload);
+        await updateBook(bookId, data);
       } else {
-        await createBook(payload);
+        await createBook(data);
       }
       navigate('/books');
     } catch (err) {
