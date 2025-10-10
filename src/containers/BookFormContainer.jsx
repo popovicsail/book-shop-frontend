@@ -28,14 +28,21 @@ const BookFormContainer = () => {
     }
   }, [bookId, isEditing]);
 
-
-
-  const handleBookSubmit = async (data) => {
+  const handleBookSubmit = async (formData) => {
     try {
+      const payload = {
+        title: formData.title,
+        pageCount: parseInt(formData.pageCount) || 0,
+        publishedDate: formData.publishedDate,
+        isbn: formData.isbn,
+        authorId: parseInt(formData.authorId),
+        publisherId: parseInt(formData.publisherId)
+    };
+      
       if (isEditing) {
-        await updateBook(bookId, data);
+        await updateBook(bookId, payload);
       } else {
-        await createBook(data);
+        await createBook(payload);
       }
       navigate('/books');
     } catch (err) {
